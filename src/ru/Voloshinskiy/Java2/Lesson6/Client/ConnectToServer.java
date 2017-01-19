@@ -16,13 +16,18 @@ public class ConnectToServer {
     private Socket socket = null;
     private Scanner dataInputStream = null;
     private PrintWriter dataOutputStream = null;
-//    Scanner console = new Scanner(System.in);
+    private String name = "somebody";
+
+
+
+    //    Scanner console = new Scanner(System.in);
 //    String name = null;
 //    Window clientGUI = null;
     public ConnectToServer(String SERVER_HOST, int SERVER_PORT) throws IOException {
-        socket = new Socket(SERVER_HOST,SERVER_PORT);;
+        socket = new Socket(SERVER_HOST,SERVER_PORT);
         dataInputStream = new Scanner(socket.getInputStream());
         dataOutputStream = new PrintWriter(socket.getOutputStream());
+
     }
 
 
@@ -42,7 +47,7 @@ public class ConnectToServer {
 //    }
 
     public void sendMsg(String msg){
-        dataOutputStream.println(msg);
+        dataOutputStream.println(name+": "+msg);
         dataOutputStream.flush();
     }
 
@@ -52,5 +57,14 @@ public class ConnectToServer {
 
     public PrintWriter getDataOutputStream() {
         return dataOutputStream;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+
+        this.name = name;
     }
 }
