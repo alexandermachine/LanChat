@@ -1,14 +1,11 @@
 package ru.Voloshinskiy.Java2.Lesson6.Client;
 
 import javax.swing.*;
-import javax.swing.text.BadLocationException;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.Socket;
 import java.util.Scanner;
 
 /**
@@ -89,7 +86,8 @@ public class Window extends JFrame {
         jtf.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                jtf.setText("");
+                if (jtf.getText().equals("Введите текст"))
+                    jtf.setText("");
             }
             @Override
             public void focusLost(FocusEvent e) {

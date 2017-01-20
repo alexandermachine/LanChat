@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Created by Alexander V on 14.01.2017.
@@ -21,7 +19,7 @@ public class Server {
     public Server(int serverPort){
         this.serverPort = serverPort;
         try {
-            serverSocket = new ServerSocket(serverPort);
+            serverSocket = new ServerSocket(this.serverPort);
             System.out.println("server is started");
             listenToClients();
         } catch (IOException e) {

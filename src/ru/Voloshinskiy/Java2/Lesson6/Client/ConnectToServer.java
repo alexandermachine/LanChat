@@ -18,33 +18,12 @@ public class ConnectToServer {
     private PrintWriter dataOutputStream = null;
     private String name = "somebody";
 
-
-
-    //    Scanner console = new Scanner(System.in);
-//    String name = null;
-//    Window clientGUI = null;
     public ConnectToServer(String SERVER_HOST, int SERVER_PORT) throws IOException {
         socket = new Socket(SERVER_HOST,SERVER_PORT);
         dataInputStream = new Scanner(socket.getInputStream());
         dataOutputStream = new PrintWriter(socket.getOutputStream());
 
     }
-
-
-//    @Override
-//    public void run() {
-//        System.out.println("Tread is run");
-//
-//        while(true){
-//            if (dataInputStream.hasNext()){
-//                System.out.println(dataInputStream.nextLine());
-//            }
-//        }
-//    }
-//    public void sendMsg(String msg){
-//        dataOutputStream.println(name + ": " + msg);
-//        dataOutputStream.flush();
-//    }
 
     public void sendMsg(String msg){
         dataOutputStream.println(name+": "+msg);
