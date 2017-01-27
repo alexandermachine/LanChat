@@ -27,6 +27,7 @@ public class Window extends JFrame {
         this.serverPort = serverPort;
         initConnection();
         initGUI();
+        serverListener();
     }
 
     private void initConnection() throws IOException {
@@ -43,6 +44,7 @@ public class Window extends JFrame {
         initTopPanel();
         initCorrespondenceField();
         initMessageField();
+        authentication();
         setVisible(true);
     }
 
@@ -145,7 +147,7 @@ public class Window extends JFrame {
                 sendAuthCommand(loginField.getText(), passwordField.getText());
             }
         });
-        add(jpAuth,BorderLayout.CENTER);
+        add(jpAuth,BorderLayout.NORTH);
     }
 
     private void sendAuthCommand(String login, String password){
